@@ -1,6 +1,6 @@
 ---
 - name: Reload {{ cwa_package }}
-  command: "{{ cwa_agent_ctl }} -a fetch-config -m {{ cwa_agent_mode }} -c file:{{ cwa_agent_config_file }} -s"
+  command: "{{ cwa_agent_ctl }} -a fetch-config -m ec2 -c file:{{ cwa_agent_config_file }} -s"
   notify: Leave a copy of configuration
   tags:
     - reload
