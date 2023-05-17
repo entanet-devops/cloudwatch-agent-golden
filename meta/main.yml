@@ -1,0 +1,20 @@
+---
+galaxy_info:
+  role_name: amazon_cloudwatch_agent_golden
+  namespace: entanet_devops
+  author: CityFibre
+  description: Ansible Role for AWS CloudWatch Agent to be used when creating golden AMIs
+  issue_tracker_url: https://github.com/entanet-devops/cloudwatch-agent-golden
+  company: CityFibre
+  license: GPLv3
+  min_ansible_version: "2.9"
+  platforms:
+    - name: Ubuntu
+      version:
+        - xenial
+        - bionic
+        - focal
+        - impish
+        - jammy
+
+dependencies: []
