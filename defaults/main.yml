@@ -1,0 +1,69 @@
+---
+# description: Store the CloudWatch Agent configuration
+# possible values:
+# - "{{ lookup('file', 'files/your-cloudwatch-config.json') | from_json }}" where your-cloudwatch-config.json is your custom
+#   configuration file according to docs reference.
+# - "{{ lookup('file', 'files/your-cloudwatch-config.yaml') | from_yaml }}" where your-cloudwatch-config.yaml is your custom
+#   configuration file according to docs reference.
+#
+# Also is possible to define inline configuration as YAML
+#    cwa_conf_json_file_content:
+#      metrics:
+#        append_dimensions:
+#          AutoScalingGroupName: "${!aws:AutoScalingGroupName}"
+#          ImageId: "${!aws:ImageId}"
+#          InstanceId: "${!aws:InstanceId}"
+#          InstanceType: "${!aws:InstanceType}"
+#        metrics_collected:
+#          mem:
+#            measurement:
+#              - mem_used_percent
+#          swap:
+#            measurement:
+#              - swap_used_percent
+#
+# reference: https://docs.aws.amazon.com/es_es/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-Configuration-File-Details.html
+# default value: ""
+# notes:
+# * When is empty the role deploy a custom json configuration via template (see: templates/agent/amazon-cloudwatch-agent.json.j2)
+cwa_conf_json_file_content: ""
+
+# description: The proxy configuration to be used by AWS CloudWatch Agent
+# possible values:
+# - https://docs.aws.amazon.com/es_es/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-commandline-fleet.html
+# default value: ""
+cwa_http_proxy: ""
+
+# description: The proxy configuration to be used by AWS CloudWatch Agent
+# possible values:
+# - https://docs.aws.amazon.com/es_es/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-commandline-fleet.html
+# default value: ""
+cwa_https_proxy: ""
+
+# description: The proxy configuration to be used by AWS CloudWatch Agent
+# possible values:
+# - https://docs.aws.amazon.com/es_es/AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-commandline-fleet.html
+# default value: "169.254.169.254"
+# * Always disable proxy for aws metadata ip (169.254.169.254)
+cwa_no_proxy: "169.254.169.254"
+
+# description: The max size of the file for the log before be rotated
+# possible values:
+# - https://linux.die.net/man/8/logrotate
+# default value: "10M"
+cwa_logrotate_file_size: "10M"
+
+# description: The max number of file to keep after rotation
+# possible values:
+# - https://linux.die.net/man/8/logrotate
+# default value: 5
+cwa_logrotate_files: 5
+
+# description: Enable the debug messages
+# possible values:
+# - true
+# - false
+# default value: false
+cwa_debug: false
+
+cwa_retention_in_days: 30
