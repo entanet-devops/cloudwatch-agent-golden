@@ -4,6 +4,50 @@
         "logfile": "{{ cwa_agent_log_file }}",
         "debug": false
     },
+    "metrics": {
+        "namespace": "Storage_metrics",
+        "metrics_collected": {
+            "disk": {
+                "resources": [
+                  "/",
+                  "/tmp"
+                ],
+                "measurement": [
+                  {"name": "free", "rename": "DISK_FREE", "unit": "Gigabytes"},
+                  "total",
+                  "used",
+                  "used_percent",
+                  "inodes_free",
+                  "inodes_total",
+                  "inodes_used"
+                ],
+                 "ignore_file_system_types": [
+                  "sysfs", "devtmpfs","nfs4","overlay","tmpfs"
+                ],
+                "metrics_collection_interval": 60,
+                "append_dimensions": {
+                  "customized_dimension_key_3": "customized_dimension_value_3",
+                  "customized_dimension_key_4": "customized_dimension_value_4"
+                }
+            },
+            "mem": {
+                "measurement": [
+                  "mem_used",
+                  "mem_cached",
+                  "mem_total"
+                ],
+                "metrics_collection_interval": 1
+            }
+        },
+        "append_dimensions": {
+            "ImageId": "${aws:ImageId}",
+            "InstanceId": "${aws:InstanceId}",
+            "InstanceType": "${aws:InstanceType}",
+            "AutoScalingGroupName": "${aws:AutoScalingGroupName}"
+        },
+        "aggregation_dimensions" : [["ImageId"], ["InstanceId", "InstanceType"], ["d1"],[]],
+        "force_flush_interval" : 30
+    },
     "logs": {
         "logs_collected": {
             "files": {
