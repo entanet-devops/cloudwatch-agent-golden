@@ -13,7 +13,7 @@
                   "/tmp"
                 ],
                 "measurement": [
-                  {"name": "free", "rename": "DISK_FREE", "unit": "Gigabytes"},
+                  {"name": "free", "rename": "disk_free", "unit": "Gigabytes"},
                   "total",
                   "used",
                   "used_percent",
@@ -24,11 +24,7 @@
                  "ignore_file_system_types": [
                   "sysfs", "devtmpfs","nfs4","overlay","tmpfs"
                 ],
-                "metrics_collection_interval": 60,
-                "append_dimensions": {
-                  "customized_dimension_key_3": "customized_dimension_value_3",
-                  "customized_dimension_key_4": "customized_dimension_value_4"
-                }
+                "metrics_collection_interval": 60
             },
             "mem": {
                 "measurement": [
@@ -36,7 +32,7 @@
                   "mem_cached",
                   "mem_total"
                 ],
-                "metrics_collection_interval": 1
+                "metrics_collection_interval": 60
             }
         },
         "append_dimensions": {
@@ -45,8 +41,7 @@
             "InstanceType": "${aws:InstanceType}",
             "AutoScalingGroupName": "${aws:AutoScalingGroupName}"
         },
-        "aggregation_dimensions" : [["ImageId"], ["InstanceId", "InstanceType"], ["d1"],[]],
-        "force_flush_interval" : 30
+        "aggregation_dimensions" : [["ImageId"], ["InstanceId", "InstanceType"]]
     },
     "logs": {
         "logs_collected": {
