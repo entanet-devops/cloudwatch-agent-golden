@@ -68,13 +68,13 @@
                         "retention_in_days": {{ cwa_retention_in_days }}
                     },
                     {
-                        "file_path": "/apps/**/storage/logs/laravel-*.log",
+                        "file_path": "/apps/*/storage/logs/laravel-*.log",
                         "log_group_name": "/aws/ec2/{instance_id}",
                         "log_stream_name": "app/laravel",
                         "retention_in_days": {{ cwa_retention_in_days }}
                     },
                     {
-                        "file_path": "/apps/**/storage/logs/supervisor-*.log",
+                        "file_path": "/apps/*/storage/logs/supervisor-*.log",
                         "log_group_name": "/aws/ec2/{instance_id}",
                         "log_stream_name": "app/supervisor",
                         "retention_in_days": {{ cwa_retention_in_days }}
