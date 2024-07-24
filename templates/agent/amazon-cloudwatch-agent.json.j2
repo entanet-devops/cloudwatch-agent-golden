@@ -51,37 +51,37 @@
                 "collect_list": [
                     {
                         "file_path": "/var/log/syslog",
-                        "log_group_name": "/aws/ec2/{hostname}-{instance_id}",
+                        "log_group_name": "/aws/ec2/{local_hostname}-{instance_id}",
                         "log_stream_name": "/var/log/syslog",
                         "retention_in_days": {{ cwa_retention_in_days }}
                     },
                     {
                         "file_path": "/var/log/nginx/access.log",
-                        "log_group_name": "/aws/ec2/{hostname}-{instance_id}",
+                        "log_group_name": "/aws/ec2/{local_hostname}-{instance_id}",
                         "log_stream_name": "/var/log/nginx/access",
                         "retention_in_days": {{ cwa_retention_in_days }}
                     },
                     {
                         "file_path": "/var/log/nginx/error.log",
-                        "log_group_name": "/aws/ec2/{hostname}-{instance_id}",
+                        "log_group_name": "/aws/ec2/{local_hostname}-{instance_id}",
                         "log_stream_name": "/var/log/nginx/error",
                         "retention_in_days": {{ cwa_retention_in_days }}
                     },
                     {
                         "file_path": "/apps/**laravel-*.log",
-                        "log_group_name": "/aws/ec2/{hostname}-{instance_id}",
+                        "log_group_name": "/aws/ec2/{local_hostname}-{instance_id}",
                         "log_stream_name": "app/laravel",
                         "retention_in_days": {{ cwa_retention_in_days }}
                     },
                     {
                         "file_path": "/apps/**laravel.log",
-                        "log_group_name": "/aws/ec2/{hostname}-{instance_id}",
+                        "log_group_name": "/aws/ec2/{local_hostname}-{instance_id}",
                         "log_stream_name": "app/laravel",
                         "retention_in_days": {{ cwa_retention_in_days }}
                     },
                     {
                         "file_path": "/apps/**supervisor-*.log",
-                        "log_group_name": "/aws/ec2/{hostname}-{instance_id}",
+                        "log_group_name": "/aws/ec2/{local_hostname}-{instance_id}",
                         "log_stream_name": "app/supervisor",
                         "retention_in_days": {{ cwa_retention_in_days }}
                     }
