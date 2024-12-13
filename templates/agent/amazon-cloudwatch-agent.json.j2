@@ -84,6 +84,30 @@
                         "log_group_name": "/aws/ec2/{local_hostname}-{instance_id}",
                         "log_stream_name": "app/supervisor",
                         "retention_in_days": {{ cwa_retention_in_days }}
+                    },
+                    {
+                        "file_path": "/apps/**web-*.log",
+                        "log_group_name": "/aws/ec2/{local_hostname}-{instance_id}",
+                        "log_stream_name": "app/web",
+                        "retention_in_days": {{ cwa_retention_in_days }}
+                    },
+                    {
+                        "file_path": "/apps/**console-*.log",
+                        "log_group_name": "/aws/ec2/{local_hostname}-{instance_id}",
+                        "log_stream_name": "app/console",
+                        "retention_in_days": {{ cwa_retention_in_days }}
+                    },
+                    {
+                        "file_path": "/apps/**queue-*.log",
+                        "log_group_name": "/aws/ec2/{local_hostname}-{instance_id}",
+                        "log_stream_name": "app/supervisor",
+                        "retention_in_days": {{ cwa_retention_in_days }}
+                    },
+                    {
+                        "file_path": "/apps/**phperrors.log",
+                        "log_group_name": "/aws/ec2/{local_hostname}-{instance_id}",
+                        "log_stream_name": "app/phperrors",
+                        "retention_in_days": {{ cwa_retention_in_days }}
                     }
                 ]
             }
